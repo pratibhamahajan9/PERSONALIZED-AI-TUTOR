@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personalized AI Tutor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+    <div class="container" id="loginPage">
+
+        <h1>Personalized AI Tutor</h1>
+        <p>Learn according to your knowledge level</p>
+
+        <input type="text" id="studentName" placeholder="Enter your name">
+
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <button onclick="login()">Login</button>
+
+    </div>
+
+    <div class="home-container" id="homePage">
+
+        <h1>Welcome to Personalized AI Tutor 👋</h1>
+        <p class="tagline">Learn Smarter • Learn Personally • Learn Better 🚀</p>
+
+        <h2 id="welcomeName"></h2>
+
+        <p>Learn smarter with personalized guidance.</p>
+
+        <button onclick="startLearning()">📚 Start Learning</button>
+        <button onclick="startTest()">📝 Diagnostic Test</button>
+        <button onclick="showProgress()">📊 My Progress</button>
+        <button onclick="revision()">🔄 Revision</button>
+
+    </div>
+
+    <div class="test-container" id="testPage">
+
+        <h1>📝 Diagnostic Test</h1>
+
+        <p>Answer the following questions.</p>
+
+        <div id="questions"></div>
+
+        <button onclick="submitTest()">Submit Test</button>
+
+    </div>
+
+    <div class="result-container" id="resultPage">
+       
+
+        <h1>🎯 Your Result</h1>
+
+        <h2 id="score"></h2>
+
+        <h2 id="level"></h2>
+
+        <p id="recommendation"></p>
+
+        <button onclick="goHome()">Back to Home</button>
+
+    </div>
+<div class="progress-container" id="progressPage">
+    <h1>📊 My Progress</h1>
+
+    <div class="progress-card">
+        <h2>Student: <span id="progressName"></span></h2>
+        <p id="progressScore"></p>
+        <p id="progressLevel"></p>
+        <p>📚 Topic: Introduction to Artificial Intelligence</p>
+        <p>🧠 Learning Method: Personalized + Feynman + Adaptive Learning</p>
+        <p>✅ Learning Status: In Progress</p>
+    </div>
+
+    <button onclick="goHome()">Back to Home</button>
+</div>
+<div class="revision-container" id="revisionPage">
+    <h1>🔄 Spaced Revision</h1>
+
+    <div class="revision-card">
+        <h2>📚 Topic: Introduction to Artificial Intelligence</h2>
+
+        <p><strong>Revision 1:</strong> Review the basic concept of AI.</p>
+        <p><strong>Revision 2:</strong> Recall the definition without looking at notes.</p>
+        <p><strong>Revision 3:</strong> Explain one real-world application of AI.</p>
+
+        <h3>🧠 Quick Revision Question</h3>
+        <p>What is Artificial Intelligence and where is it used?</p>
+
+        <button onclick="completeRevision()">
+            ✅ Complete Revision
+        </button>
+
+        <p id="revisionFeedback"></p>
+    </div>
+
+    <button onclick="goHome()">Back to Home</button>
+</div>
+    <script src="script.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+        navigator.serviceWorker.register("./service-worker.js")
+            .then(function() {
+                console.log("Service Worker registered successfully");
+            })
+            .catch(function(error) {
+                console.log("Service Worker registration failed:", error);
+            });
+    });
+}
+</script>
+
+</body>
+</html>
+    <!-- PERSONALIZED LEARNING PAGE -->
+
+<div class="learning-container" id="learningPage">
+
+    <h1>📚 Personalized Learning</h1>
+
+    <h2 id="learningLevel"></h2>
+
+    <div class="learning-card">
+
+        <h2>Topic: Introduction to Artificial Intelligence</h2>
+
+        <h3 id="learningTitle"></h3>
+
+        <p id="learningContent"></p>
+
+        <div class="practice-box">
+
+            <h3>🧠 Practice Question</h3>
+
+            <p id="practiceQuestion"></p>
+            <textarea id="answer" placeholder="Explain the concept in your own words..."></textarea>
+
+<button onclick="checkAnswer()">Submit Answer</button>
+
+<p id="feedback"></p>
+<div class="adaptive-box">
+    <h3>🎯 Adaptive Practice</h3>
+    <p id="adaptiveQuestion"></p>
+</div>
+        </div>
+
+    </div>
+
+    <button onclick="goHome()">Back to Home</button>
+
+</div>
+
+
+</body>
+</html>
